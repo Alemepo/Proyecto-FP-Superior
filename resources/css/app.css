@@ -1,0 +1,737 @@
+/* =========================================
+   1. IMPORTACIÓN DE FUENTES (Google Fonts)
+   ========================================= */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap");
+
+/* =========================================
+   2. VARIABLES GLOBALES
+   ========================================= */
+:root {
+    /* Paleta de Colores */
+    --color-principal: #000000; /* 60% - Fuerza, seriedad, elegancia */
+    --color-secundario: #ffffff; /* 30% - Limpieza, elegancia */
+    --color-terciario: #d72638; /* 10% - Importancia, pasión, energía (Acento) */
+
+    /* Tipografías */
+    --font-heading: "Anton", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    /* Tamaños de Fuente */
+    --text-h1: 32px;
+    --text-h2: 26px; /* Ajustado al valor de tu imagen (26px) */
+    --text-h3: 20px; /* Ajustado al valor de tu imagen (22px) -> En la imagen dice 22px, ajustado aquí */
+    --text-p: 12px;
+
+    /* Espaciados y Grid (Referencia básica) */
+    --gap-standard: 1rem;
+    --container-max-width: 1353px; /* Basado en tu grilla horizontal */
+}
+
+/* =========================================
+   3. RESET BÁSICO
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-p);
+    color: var(--color-secundario); /* Por defecto texto blanco */
+    background-color: var(
+        --color-principal
+    ); /* Por defecto fondo negro (60%) */
+    line-height: 1.5;
+}
+
+/* =========================================
+   4. TIPOGRAFÍA Y JERARQUÍA
+   ========================================= */
+h1,
+h2,
+h3,
+.anton-text {
+    font-family: var(--font-heading);
+    font-weight: normal; /* Anton suele verse mejor en su peso normal */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: var(--text-h1);
+    margin-bottom: 1rem;
+}
+h2 {
+    font-size: var(--text-h2);
+    margin-bottom: 0.8rem;
+}
+h3 {
+    font-size: var(--text-h3);
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: var(--text-p);
+    margin-bottom: 1rem;
+}
+
+/* Textos destacados o enlaces */
+a {
+    color: var(--color-terciario);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-secundario);
+}
+
+/* =========================================
+   5. CLASES DE UTILIDAD (Colores y Fondos)
+   ========================================= */
+.bg-principal {
+    background-color: var(--color-principal);
+    color: var(--color-secundario);
+}
+.bg-secundario {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+.bg-terciario {
+    background-color: var(--color-terciario);
+    color: var(--color-secundario);
+}
+
+.text-principal {
+    color: var(--color-principal);
+}
+.text-secundario {
+    color: var(--color-secundario);
+}
+.text-terciario {
+    color: var(--color-terciario);
+}
+
+/* =========================================
+   6. COMPONENTES BÁSICOS
+   ========================================= */
+/* Botón Principal (Usando el color rojo de acento) */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-terciario);
+    color: var(--color-secundario);
+    font-family: var(--font-heading);
+    font-size: 16px; /* Un poco más grande para botones */
+    padding: 10px 24px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b01c2b; /* Un rojo más oscuro para el hover */
+    transform: translateY(-2px);
+}
+
+/* Botón Secundario */
+.btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-secundario);
+    font-family: var(--font-heading);
+    font-size: 16px;
+    padding: 8px 22px;
+    border: 2px solid var(--color-secundario);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+/* =========================================
+   7. LAYOUT Y GRID
+   ========================================= */
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-content {
+    flex: 1;
+    padding-top: 100px;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.min-h-full {
+    min-height: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex: 1;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+/* Grilla básica de 12 columnas para replicar la de Figma */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px; /* Separación entre columnas */
+}
+
+/* Utilidad para centrar contenido vertical y horizontalmente */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.site-footer {
+    background-color: #050505;
+    border-top: 1px solid #222;
+    padding: 30px 20px;
+}
+
+.site-footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+/* =========================================
+   8. NAVEGACIÓN Y RESPONSIVE (Móviles)
+   ========================================= */
+
+/*
+   Clases generales para controlar qué se ve en escritorio
+   y qué se ve en móvil.
+*/
+.desktop-only {
+    display: none;
+}
+
+.mobile-only {
+    display: flex;
+}
+
+/*
+   A partir de tablet/escritorio mostramos elementos de escritorio
+   y ocultamos elementos exclusivos de móvil.
+*/
+@media (min-width: 768px) {
+    .desktop-only {
+        display: flex;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+}
+
+/*
+   Botón de perfil desplegable usado en la navegación.
+*/
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #0a0a0a;
+    border: 2px solid var(--color-terciario);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 4px 18px 4px 4px;
+    transition: all 0.3s ease;
+    color: var(--color-secundario);
+}
+
+/*
+   Menú de escritorio.
+   Este menú se oculta en móvil para dejar espacio a la hamburguesa.
+*/
+.desktop-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+/*
+   Botón hamburguesa móvil.
+   Por defecto está oculto y aparece solo en pantallas pequeñas.
+*/
+.mobile-menu-button {
+    display: none;
+    background: #0a0a0a;
+    border: 2px solid var(--color-terciario);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+}
+
+/*
+   Panel desplegable del menú móvil.
+*/
+.mobile-menu-panel {
+    display: none;
+}
+
+.mobile-menu-panel a,
+.mobile-menu-panel button {
+    display: block;
+    width: 100%;
+    padding: 13px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.mobile-menu-panel a:hover,
+.mobile-menu-panel button:hover {
+    background-color: #222222;
+}
+
+/*
+   Comportamiento móvil de la navegación.
+*/
+@media (max-width: 900px) {
+    .desktop-menu {
+        display: none !important;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .mobile-menu-panel {
+        display: block;
+        background-color: #111111;
+        border-top: 1px solid #333333;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
+}
+/* =========================================
+   9. Calendario
+   ========================================= */
+/* Personalización del calendario FullCalendar para Iron Pulse */
+.fc {
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+.fc-toolbar-title {
+    font-family: "Anton", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.fc-button-primary {
+    background-color: var(--color-terciario) !important;
+    border-color: var(--color-terciario) !important;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.fc-button-primary:hover {
+    background-color: #b01e2d !important;
+}
+.fc-daygrid-day:hover {
+    background-color: rgba(215, 38, 56, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.fc-event {
+    cursor: pointer;
+    border: none;
+    padding: 2px 5px;
+}
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border: 1px solid #333 !important;
+}
+.fc-col-header-cell-cushion {
+    color: #888;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+/* =========================================
+   10. Tablas
+   ========================================= */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.table th {
+    background-color: #000;
+    color: #888;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.table td {
+    color: #fff;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   11. Botones adicionales
+   ========================================= */
+.btn-danger {
+    display: inline-block;
+    background-color: #f00;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c00;
+}
+
+/* =========================================
+   12. Inputs y Formularios
+   ========================================= */
+.input {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-terciario);
+}
+
+/* =========================================
+   13. Grid de Ejercicios
+   ========================================= */
+.exercise-grid {
+    display: grid;
+    grid-template-columns: 2fr 0.8fr 0.8fr 0.2fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.exercise-grid input {
+    padding: 8px;
+    background-color: #111;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.exercise-grid input:focus {
+    border-color: var(--color-terciario);
+}
+
+/* =========================================
+   14. Botones adicionales
+   ========================================= */
+.btn-add {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-terciario);
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add:hover {
+    background-color: #b01c2b;
+}
+
+.btn-add-day {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-terciario);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add-day:hover {
+    background-color: #b01c2b;
+}
+
+/* =========================================
+   15. RESPONSIVE GENERAL PARA MÓVIL
+   ========================================= */
+
+/*
+   Ajustes generales para pantallas pequeñas.
+   Sirve para que las vistas sean más cómodas en móvil:
+   - menos padding
+   - títulos más pequeños
+   - botones adaptados
+   - tablas con scroll horizontal
+   - formularios más manejables
+*/
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    h1 {
+        font-size: 30px !important;
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: 26px !important;
+        line-height: 1.15;
+    }
+
+    h3 {
+        font-size: 22px !important;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    /*
+       Botones en móvil.
+       Evitamos que se salgan de pantalla y mejoramos el toque con el dedo.
+    */
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        max-width: 100%;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+
+    /*
+       Formularios en móvil.
+       Los campos ocupan todo el ancho disponible.
+    */
+    input,
+    select,
+    textarea,
+    .input {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    textarea {
+        min-height: 90px;
+    }
+
+    /*
+       Grids generales.
+       Si una vista usa la clase .grid, en móvil pasa a una sola columna.
+    */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /*
+       Tablas.
+       Si una tabla es muy ancha, permitimos scroll horizontal
+       para no romper la pantalla en móvil.
+    */
+    .table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    /*
+       Grid de ejercicios.
+       En móvil los campos se apilan para que no queden demasiado estrechos.
+    */
+    .exercise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exercise-grid input,
+    .exercise-grid button {
+        width: 100%;
+    }
+
+    /*
+       Botones circulares de añadir.
+       Se mantienen centrados y con tamaño cómodo.
+    */
+    .btn-add {
+        width: 34px;
+        height: 34px;
+    }
+
+    .btn-add-day {
+        width: 54px;
+        height: 54px;
+        font-size: 26px;
+    }
+
+    /*
+       Calendario FullCalendar.
+       Reducimos espacios y tamaños para que sea más usable en móvil.
+    */
+    .fc {
+        padding: 10px;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+
+    .fc-toolbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .fc-toolbar-title {
+        font-size: 22px !important;
+        text-align: center;
+    }
+
+    .fc-button {
+        font-size: 12px !important;
+        padding: 6px 10px !important;
+    }
+}
+
+/* =========================================
+   16. RESPONSIVE PARA MÓVILES MUY PEQUEÑOS
+   ========================================= */
+
+/*
+   Ajustes extra para móviles estrechos.
+*/
+@media (max-width: 480px) {
+    .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    h1 {
+        font-size: 26px !important;
+    }
+
+    h2 {
+        font-size: 22px !important;
+    }
+
+    h3 {
+        font-size: 19px !important;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        width: 100%;
+        display: block;
+    }
+
+    /*
+       El logo puede ocupar demasiado en móvil pequeño.
+    */
+    nav img {
+        height: 60px !important;
+    }
+
+    /*
+       Reducimos altura visual de la navegación.
+    */
+    nav .container {
+        height: 70px !important;
+    }
+}
